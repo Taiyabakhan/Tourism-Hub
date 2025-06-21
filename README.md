@@ -21,9 +21,6 @@
 - **💳 Secure Payment Gateway**  
   Seamless integration with Stripe for secure payments and bookings.
 
-- **🤖 Chatbot Assistance**  
-  24/7 chatbot support to answer all travel-related queries.
-
 - **🚆 Travel Information**  
   Real-time details on trains, buses, and flights for easy travel planning.
 
@@ -54,7 +51,7 @@
 
 ## GETTING INTO THE PROJECT:
 
-Here are some screenshots of my Project - IRCTC-CLONE:
+Here are some screenshots of my Project :
 
 - Home page
 ![image](https://github.com/Taiyabakhan/Tourism-Hub/blob/main/Screenshots/Screenshot%20(272).png)
