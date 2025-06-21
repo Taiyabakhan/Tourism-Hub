@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Platform</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* Background and Navbar */
+        body {
+            background-color: #f4f4f4;
+            color: #444;
+        }
+        .navbar {
+            background-color: #222;
+        }
+        .navbar-brand {
+            color: #fff !important;
+        }
+
+        /* Hero Section */
+        .jumbotron {
+            padding: 3rem 2rem;
+            margin-bottom: 0;
+            background: url("https://t4.ftcdn.net/jpg/05/05/51/25/360_F_505512599_D6ulJI9hV6aGTP04FPC2XDk5QHGOQtpW.jpg") center/cover;
+            color: #fff;
+            text-align: center;
+        }
+        .jumbotron .btn-primary {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Section Styling */
+        .container {
+            margin-top: 2rem;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            border: none;
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-title {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" data-aos="fade-down">
+        <a class="navbar-brand" href="#">
+            <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/6208fcae2bc1d2f417dac528/0x0.png" alt="Tourism Hub Logo" style="height: 40px; margin-right: 10px;">
+            Tourism Hub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/plans">Plan Your Trip</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li> -->
+                <% if ( session.userId) { %>
+                    <!-- If user is logged in, show the "Logout" link -->
+                    <a class="nav-link" href="/logout">Logout</a>
+                  <% } if(! session.userId) { %>
+                    <!-- If user is not logged in, show the "Login" link -->
+                    <a class="nav-link" aria-current="page" href="/login">Login</a>
+                  <% } %>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="jumbotron" data-aos="fade-up">
+        <h1 class="display-4">Welcome to Tourism Hub</h1>
+        <p class="lead">Your one-stop solution for planning memorable trips.</p>
+        <a class="btn btn-primary btn-lg" href="/register" role="button">Register Now!</a>
+    </div>
+
+    <!-- Featured Trip Plans -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4" data-aos="fade-up">Featured Trip Plans</h2>
+        <div class="row">
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card">
+                    <img src="https://media.istockphoto.com/id/510978989/photo/hawa-mahal-palace-in-jaipur-rajasthan.jpg?s=612x612&w=0&k=20&c=-2ijZ9kpofMH1jJhaxFF1hJ5oqjdXfOtIu0BlwXwdls=" class="card-img-top" alt="Trip 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Trip to Jaipur</h5>
+                        <p class="card-text">Explore the rich culture and heritage of Jaipur.</p>
+                        <a href="/trip-plan" class="btn btn-primary">Plan Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Taj_Mahal_%28Edited%29.jpeg" class="card-img-top" alt="Trip 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Trip to Agra</h5>
+                        <p class="card-text">Discover the history and beauty of Agra.</p>
+                        <a href="/trip-plan" class="btn btn-primary">Plan Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz8fLERsmm-PB-dYJj9mkWCka5IITN3vkcTQ&s" class="card-img-top" alt="Trip 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Trip to Goa</h5>
+                        <p class="card-text">Relax on the beautiful beaches of Goa.</p>
+                        <a href="/trip-plan" class="btn btn-primary">Plan Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <!-- Footer -->
+<footer data-aos="fade-up" style="background: #2c3e50; color: #ecf0f1; padding: 30px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 20px;">
+        <div style="flex: 1 1 200px; min-width: 200px;">
+            <h3 style="margin-bottom: 15px; font-weight: 700;">Tourism Hub</h3>
+            <p style="font-size: 0.9em; line-height: 1.6;">Explore the world with trusted travel buddies. Your adventure starts here with our community of explorers.</p>
+            <p style="margin-top: 20px; font-size: 0.8em; color: #95a5a6;">&copy; 2025 Tourism Hub | All Rights Reserved</p>
+        </div>
+        <div style="flex: 1 1 150px; min-width: 150px;">
+            <h4 style="margin-bottom: 15px; font-weight: 600;">Quick Links</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9em;">
+                <li><a href="/" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s;">Home</a></li>
+                <li><a href="/about" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s;">About Us</a></li>
+                <li><a href="/destinations" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s;">Destinations</a></li>
+                <li><a href="/contact" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+                <li><a href="/teammates" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s;">Find Travel Buddy?</a></li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 200px; min-width: 200px;">
+            <h4 style="margin-bottom: 15px; font-weight: 600;">Follow Us</h4>
+            <div style="display: flex; gap: 15px; font-size: 1.2em;">
+                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" style="color: #ecf0f1; transition: color 0.3s;">
+                    <svg style="width:24px; height:24px; fill: currentColor;" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .732.593 1.324 1.325 1.324h11.495v-9.294h-3.125v-3.622h3.125v-2.672c0-3.1 1.892-4.788 4.658-4.788 1.325 0 2.464.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.764v2.312h3.59l-.467 3.622h-3.123v9.293h6.116c.73 0 1.323-.593 1.323-1.324v-21.35c0-.732-.593-1.325-1.324-1.325z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" style="color: #ecf0f1; transition: color 0.3s;">
+                    <svg style="width:24px; height:24px; fill: currentColor;" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M24 4.557a9.83 9.83 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.865 9.865 0 01-3.127 1.195 4.916 4.916 0 00-8.373 4.482 13.945 13.945 0 01-10.11-5.13 4.922 4.922 0 001.522 6.573 4.903 4.903 0 01-2.228-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.93 4.93 0 01-2.224.084 4.918 4.918 0 004.588 3.417 9.867 9.867 0 01-6.102 2.106c-.397 0-.79-.023-1.175-.069a13.945 13.945 0 007.557 2.212c9.054 0 14.002-7.496 14.002-13.986 0-.21-.004-.423-.015-.633a9.936 9.936 0 002.46-2.548l-.047-.02z"/>
+                    </svg>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" style="color: #ecf0f1; transition: color 0.3s;">
+                    <svg style="width:24px; height:24px; fill: currentColor;" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4zm8.5 1.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" style="color: #ecf0f1; transition: color 0.3s;">
+                    <svg style="width:24px; height:24px; fill: currentColor;" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.059-1.865-3.059-1.867 0-2.154 1.46-2.154 2.965v5.698h-3v-10h2.883v1.367h.041c.402-.761 1.383-1.562 2.848-1.562 3.046 0 3.609 2.005 3.609 4.609v5.586z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div style="flex: 1 1 250px; min-width: 250px;">
+            <h4 style="margin-bottom: 15px; font-weight: 600;">Newsletter</h4>
+            <p style="font-size: 0.9em; margin-bottom: 10px;">Subscribe to get the latest travel tips and updates.</p>
+            <form style="display: flex; gap: 10px;">
+                <input type="email" placeholder="Your email" aria-label="Email address" required
+                    style="flex: 1; padding: 8px 12px; border: none; border-radius: 4px; font-size: 0.9em;">
+                <button type="submit" class="btn btn-success" style="padding: 8px 16px; border-radius: 4px; border: none; background-color: #28a745; color: white; font-weight: 600; cursor: pointer; transition: background-color 0.3s;">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: true, // Animation occurs only once as you scroll down
+        });
+    </script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2024/11/13/06/20241113061923-1EPJBWCV.js"></script>
+</body>
+</html>
